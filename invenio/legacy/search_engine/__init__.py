@@ -52,7 +52,7 @@ from .utils import record_exists
 
 from invenio.legacy.dbquery import run_sql
 
-from invenio.base.i18n import gettext_set_language
+from invenio_base.i18n import gettext_set_language
 from invenio.modules.collections.models import Collection
 
 # em possible values

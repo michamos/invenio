@@ -26,7 +26,7 @@ import subprocess
 import sys
 
 from invenio_base.globals import cfg
-from invenio.ext.script import Manager
+from invenio_ext.script import Manager
 
 manager = Manager(usage="Runs SQL commands")
 

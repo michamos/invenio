@@ -24,8 +24,8 @@ import sys
 def setup():
     """Load query object for given database type."""
     from werkzeug.utils import import_string
-    from invenio.config import CFG_DATABASE_TYPE
-    return import_string('invenio.legacy.dbquery_{0}'.format(CFG_DATABASE_TYPE))
+    from invenio_base.globals import cfg
+    return import_string('invenio.legacy.dbquery_{0}'.format(cfg["CFG_DATABASE_TYPE"]))
 
 sys.modules[__name__] = setup()
 del setup

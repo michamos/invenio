@@ -37,7 +37,7 @@ from invenio_utils.apache import \
 from invenio.config import CFG_WEBDIR, CFG_SITE_LANG, \
     CFG_WEBSTYLE_HTTP_STATUS_ALERT_LIST, CFG_DEVEL_SITE, CFG_SITE_URL, \
     CFG_SITE_SECURE_URL, CFG_WEBSTYLE_REVERSE_PROXY_IPS
-from invenio.ext.logging import register_exception
+from invenio_ext.logging import register_exception
 from invenio_utils.datastructures import flatten_multidict
 # TODO for future reimplementation of stream_file
 from flask import request, after_this_request, session
@@ -465,7 +465,7 @@ def application(environ, start_response, handler=None):
 
     try:
         if handler is None:
-            from invenio.ext.legacy.layout import invenio_handler
+            from invenio_ext.legacy.layout import invenio_handler
             invenio_handler(req)
         else:
             handler(req)
@@ -572,14 +572,14 @@ def mp_legacy_publisher(req, possible_module, possible_handler):
     """
     mod_python legacy publisher minimum implementation.
     """
-    from invenio.ext.legacy.handler import CFG_HAS_HTTPS_SUPPORT, CFG_FULL_HTTPS
+    from invenio_ext.legacy.handler import CFG_HAS_HTTPS_SUPPORT, CFG_FULL_HTTPS
     if possible_module.endswith('.pyc'):
         possible_module = possible_module[:-1]
     the_module = open(possible_module).read()
     module_globals = {}
     exec(the_module, module_globals)
     if possible_handler in module_globals and callable(module_globals[possible_handler]):
-        from invenio.ext.legacy.handler import _check_result
+        from invenio_ext.legacy.handler import _check_result
         ## req is the required first parameter of any handler
         expected_args = list(inspect.getargspec(module_globals[possible_handler])[0])
         if not expected_args or 'req' != expected_args[0]:

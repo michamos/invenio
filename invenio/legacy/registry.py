@@ -24,7 +24,7 @@ from flask import current_app
 from flask_registry import RegistryProxy, ImportPathRegistry, \
     ModuleAutoDiscoveryRegistry
 
-from invenio.ext.registry import ModuleAutoDiscoverySubRegistry
+from invenio_ext.registry import ModuleAutoDiscoverySubRegistry
 from invenio_utils.datastructures import LazyDict
 
 legacy_modules = RegistryProxy('legacy', ImportPathRegistry,
@@ -46,7 +46,7 @@ webinterface_proxy = RegistryProxy(
     registry_namespace=legacy_modules)
 
 def _webinterface(module):
-    from invenio.ext.legacy.handler import WebInterfaceDirectory
+    from invenio_ext.legacy.handler import WebInterfaceDirectory
     parts = module.__name__.split('.')
     for value in dir(module):
         webinterface = getattr(module, value)

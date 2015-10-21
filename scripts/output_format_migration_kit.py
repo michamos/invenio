@@ -25,7 +25,7 @@ import os
 import yaml
 
 from flask import current_app
-from invenio.ext.script import Manager
+from invenio_ext.script import Manager
 
 manager = Manager(usage="Perform output format migration operations.")
 

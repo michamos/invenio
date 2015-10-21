@@ -29,7 +29,7 @@ import sys
 import string
 
 from bs4 import BeautifulSoup
-from invenio.ext.template import render_template_to_string
+from invenio_ext.template import render_template_to_string
 from invenio.config import \
      CFG_SITE_LANG, \
      CFG_SITE_NAME, \

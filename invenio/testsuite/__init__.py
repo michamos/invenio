@@ -50,8 +50,8 @@ from flask import url_for
 
 from functools import wraps
 
-from invenio.ext.sqlalchemy import db
-from invenio.ext.sqlalchemy.utils import session_manager
+from invenio_ext.sqlalchemy import db
+from invenio_ext.sqlalchemy.utils import session_manager
 
 from itertools import chain, repeat
 
@@ -277,12 +277,12 @@ class FlaskSQLAlchemyTest(InvenioTestCase):
 
     def setUp(self):
         """Create the tables."""
-        from invenio.ext.sqlalchemy import db
+        from invenio_ext.sqlalchemy import db
         db.create_all()
 
     def tearDown(self):
         """Drop the tables."""
-        from invenio.ext.sqlalchemy import db
+        from invenio_ext.sqlalchemy import db
         db.session.expunge_all()
         db.session.rollback()
         db.drop_all()

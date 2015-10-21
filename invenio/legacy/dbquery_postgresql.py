@@ -41,7 +41,7 @@ import warnings
 from flask import current_app, has_app_context
 
 from invenio_base.globals import cfg
-from invenio.ext.sqlalchemy import db
+from invenio_ext.sqlalchemy import db
 
 
 def _db_login(*args, **kwargs):
